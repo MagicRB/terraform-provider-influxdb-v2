@@ -15,6 +15,9 @@ func ResourceBucket() *schema.Resource {
 		Delete: resourceBucketDelete,
 		Read:   resourceBucketRead,
 		Update: resourceBucketUpdate,
+		Importer: &schema.ResourceImporter{
+			StateContext: schema.ImportStatePassthroughContext,
+		},
 		Schema: map[string]*schema.Schema{
 			"description": {
 				Type:     schema.TypeString,
